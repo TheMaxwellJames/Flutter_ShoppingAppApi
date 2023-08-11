@@ -12,6 +12,12 @@ connection.once("open",()=>{
     console.log("MongoDB is connected")
 });
 
+//middleware
+app.use(express.json());
+const loginRoutes = require("./routes/login.routes");
+app.use("/login", loginRoutes);
+
+
 app.route("/").get((req,res)=>{
         res.json("Server Is Connected")
 
